@@ -27,5 +27,15 @@ public class FirstController {
         return repository.findAll();
     }
 
+    @GetMapping("/students/search/{name}")
+    public List<Student> findStudentsByName(@PathVariable String name) {
+        return repository.findAllByFirstNameContaining(name);
+    }
+
+    @DeleteMapping("/students/{name}")
+    public void deleteByLastName(@PathVariable String name) {
+        repository.deleteByLastNameIs(name);
+    }
+
 
 }
